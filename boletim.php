@@ -16,3 +16,5 @@ if ($media >= 6) {
 } else {
     echo '(' . $statusMedia . ')Você foi reprovado.' . PHP_EOL;
 }
+
+echo 'Versão 2 com recurso extra' . PHP_EOL;
