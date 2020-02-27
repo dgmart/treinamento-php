@@ -10,19 +10,31 @@
 <body>
     <?php
     $nota1 = rand(0, 10);
-    $status1 = $nota1 >= 6 ? 'blue' : 'red';
+    if ($nota1 < 6) {
+        $status1 = 'red';
+    } elseif ($nota1 < 9) {
+        $status1 = 'green';
+    } else {
+        $status1 = 'blue';
+    }
 
     $nota2 = rand(0, 10);
-    $status2 = $nota2 >= 6 ? 'blue' : 'red';
+    if ($nota2 >= 9) {
+        $status2 = 'blue';
+    } elseif ($nota2 < 9 && $nota2 >= 6) {
+        $status2 = 'green';
+    } elseif ($nota2 < 6) {
+        $status2 = 'red';
+    }
 
     $nota3 = rand(0, 10);
-    $status3 = $nota3 >= 6 ? 'blue' : 'red';
+    $status3 = $nota3 >= 9 ? 'blue' : ($nota3 >= 6 ? 'green' : 'red');
 
     $nota4 = rand(0, 10);
-    $status4 = $nota4 >= 6 ? 'blue' : 'red';
+    $status4 = $nota4 >= 9 ? 'blue' : ($nota4 >= 6 ? 'green' : 'red');
 
     $media = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
-    $statusMedia = $media >= 6 ? 'blue' : 'red';
+    $statusMedia = $media >= 9 ? 'blue' : ($media >= 6 ? 'green' : 'red');
     ?>
 
     <table>
@@ -67,6 +79,17 @@
             </tr>
         </tfoot>
     </table>
+    <span style="color: <?= $statusMedia ?>">
+        <?php
+        if ($media < 6) {
+            echo 'Você foi reprovado';
+        } elseif ($media < 9) {
+            echo 'Você foi aprovado';
+        } else {
+            echo 'Você foi aprovado com excelencia.';
+        }
+        ?>
+    </span>
 </body>
 
 </html>
