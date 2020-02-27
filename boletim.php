@@ -1,25 +1,72 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-$nota1 = rand(0, 10);
-$status1 = $nota1 >= 6 ? 'blue' : 'red';
-$nota2 = rand(0, 10);
-$status2 = $nota2 >= 6 ? 'blue' : 'red';
-$nota3 = rand(0, 10);
-$status3 = $nota3 >= 6 ? 'blue' : 'red';
-$nota4 = rand(0, 10);
-$status4 = $nota4 >= 6 ? 'blue' : 'red';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+</head>
 
-$media = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
-$statusMedia = $media >= 6 ? 'blue' : 'red';
+<body>
+    <?php
+    $nota1 = rand(0, 10);
+    $status1 = $nota1 >= 6 ? 'blue' : 'red';
 
-echo 'Nota 1 (' . $status1 . '): ' . $nota1 . PHP_EOL;
-echo 'Nota 2 (' . $status2 . '): ' . $nota2 . PHP_EOL;
-echo 'Nota 3 (' . $status3 . '): ' . $nota3 . PHP_EOL;
-echo 'Nota 4 (' . $status4 . '): ' . $nota4 . PHP_EOL;
-echo 'Média (' . $statusMedia . '): ' . $media . PHP_EOL;
+    $nota2 = rand(0, 10);
+    $status2 = $nota2 >= 6 ? 'blue' : 'red';
 
-if ($media >= 6) {
-    echo '(' . $statusMedia . ')Você foi aprovado' . PHP_EOL;
-} else {
-    echo '(' . $statusMedia . ')Você foi reprovado.' . PHP_EOL;
-}
+    $nota3 = rand(0, 10);
+    $status3 = $nota3 >= 6 ? 'blue' : 'red';
+
+    $nota4 = rand(0, 10);
+    $status4 = $nota4 >= 6 ? 'blue' : 'red';
+
+    $media = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
+    $statusMedia = $media >= 6 ? 'blue' : 'red';
+    ?>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Bimestre</td>
+                <td>Nota</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td style="color: <?= $status1 ?>">
+                    <?= $nota1 ?>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td style="color: <?= $status2 ?>">
+                    <?= $nota2 ?>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td style="color: <?= $status3 ?>">
+                    <?= $nota3 ?>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td style="color: <?= $status4 ?>">
+                    <?= $nota4 ?>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Média</th>
+                <th style="color: <?= $statusMedia ?>">
+                    <?= $media ?>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
