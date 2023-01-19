@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <p>Notas:</p>
     <?php
     $nota1 = rand(0, 10);
     if ($nota1 < 6) {
